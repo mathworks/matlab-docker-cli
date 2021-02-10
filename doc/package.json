@@ -1,0 +1,10 @@
+{
+  "name": "my_web_server",
+  "version": "1.0.0",
+  "description": "Minimal web server example",
+  "main": "my-web-server.js",
+  "author": "Geoffrey McVittie",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

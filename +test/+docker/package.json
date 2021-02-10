@@ -1,0 +1,11 @@
+{
+  "name": "docker-node-test",
+  "version": "1.0.0",
+  "description": "MATLAB wrapper to use the Handlebars.js template engine.",
+  "main": "docker-node-test.js",
+  "author": "Geoffrey McVittie",
+  "dependencies": {
+    "express": "^4.17.1",
+    "handlebars": "^4.7.6"
+  }
+}
