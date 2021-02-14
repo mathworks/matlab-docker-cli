@@ -1,5 +1,5 @@
 # Copyright 2021 The MathWorks, Inc.
-FROM node:12
+FROM node:14
 
 WORKDIR /usr/src/app
 

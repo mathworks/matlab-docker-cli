@@ -6,7 +6,7 @@ classdef Build < matlab.unittest.TestCase
             [filepath,~,~] = fileparts(mfilename('fullpath'));
             
             test.verifyEmpty(docker.images("myimage:latest")); 
-            test.verifyWarningFree(@()docker.build(filepath,"tag","myimage:latest"));
+            test.verifyWarningFree(@()docker.build(fullfile(filepath,"dockerfiles","webserver"),"tag","myimage:latest"));
             test.verifyNotEmpty(docker.images("myimage:latest"));
             
             docker.rmi("myimage:latest");            
@@ -15,7 +15,7 @@ classdef Build < matlab.unittest.TestCase
         function error_when_no_dockerfile(test)
             [filepath,~,~] = fileparts(mfilename('fullpath'));
             
-            test.verifyError(@()docker.build(fullfile(filepath,'output')),'Docker:errorFromDockerCLI');
+            test.verifyError(@()docker.build(filepath),'Docker:errorFromDockerCLI');
         end 
                         
     end

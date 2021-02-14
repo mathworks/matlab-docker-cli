@@ -6,6 +6,12 @@ classdef RM < matlab.unittest.TestCase
         end
     end
     
+    methods(TestMethodTeardown)
+        function containerCleanup(~)
+            docker.rm("MyArchContainer","force",true);
+        end
+    end
+    
     methods (Test)        
         
         function remove_container(test)            

@@ -6,6 +6,12 @@ classdef Run < matlab.unittest.TestCase
         end
     end
     
+    methods(TestMethodTeardown)
+        function containerCleanup(~)
+            docker.rm("MyArchContainer","force",true);
+        end
+    end
+    
     methods (Test)        
         
         function run_container(test)            
@@ -15,6 +21,20 @@ classdef Run < matlab.unittest.TestCase
             docker.kill("MyArchContainer");
             docker.rm("MyArchContainer");
         end
+        
+        function run_container_w_environment_var(test)
+            
+            [filepath,~,~] = fileparts(mfilename('fullpath'));
+            docker.build(fullfile(filepath,"dockerfiles","envvar"),"tag","myimage:latest");
+            
+            test.verifyEqual(...
+                docker.run("myimage:latest",string.empty(),string.empty(),...
+                "env","MYENVVAR=""Hello""",...
+                "name","MyArchContainer"),"Hello"+newline);
+            
+            docker.rm("MyArchContainer");
+            docker.rmi("myimage:latest");
+        end        
         
         function run_container_w_output(test)            
             

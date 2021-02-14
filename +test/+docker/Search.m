@@ -6,6 +6,12 @@ classdef Search < matlab.unittest.TestCase
         end
     end
     
+    methods(TestMethodTeardown)
+        function containerCleanup(~)
+            docker.rm("MyArchContainer","force",true);
+        end
+    end
+    
     methods (Test)        
         
         function list_images_avaliable(test)            

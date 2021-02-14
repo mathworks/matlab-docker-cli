@@ -5,6 +5,12 @@ classdef Create < matlab.unittest.TestCase
             docker.pull("archlinux:latest");
         end
     end
+    
+    methods(TestMethodTeardown)
+        function containerCleanup(~)
+            docker.rm("MyArchContainer","force",true);
+        end
+    end
          
     methods (Test)        
         
