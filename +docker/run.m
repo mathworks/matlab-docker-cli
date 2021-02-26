@@ -34,6 +34,8 @@ arguments
     options.publish string {mustBeScalarOrEmpty} = string.empty();
     options.detach logical {mustBeScalarOrEmpty} = logical.empty();
     options.env string = string.empty();
+    options.volume string = string.empty();
+    options.workdir string {mustBeScalarOrEmpty} = string.empty();
     
     %% Setup and Cleanup Options    
     options.pull {mustBeMember(options.pull,["always","missing","never"])} = "missing";    
@@ -42,8 +44,8 @@ arguments
 end
 
 flags = containers.Map(...
-    ["label","name","addhost","publish","pull","rm","detach","env"],...
-    ["--label","--name","--add-host","--publish","--pull","--rm","--detach","--env"]);
+    ["label","name","addhost","publish","pull","rm","detach","env","volume","workdir"],...
+    ["--label","--name","--add-host","--publish","--pull","--rm","--detach","--env","--volume","--workdir"]);
 
 OPTIONS = docker.internal.optionToStringMap(flags,options);
 
@@ -72,4 +74,3 @@ end
 out = string(result);
 
 end
-

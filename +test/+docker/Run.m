@@ -45,6 +45,17 @@ classdef Run < matlab.unittest.TestCase
             docker.rm("MyArchContainer");
         end
         
+        function run_container_w_volumes(test)
+            docker.pull("archlinux:latest","quiet",true);
+            
+            test.verifyWarningFree(@()docker.run("archlinux:latest",string.empty(),string.empty(),"name","MyArchContainer","workdir","/mydir","volume",strrep(pwd,"\","/") + ":/mydir"));
+                        
+            test.verifyEqual(string(docker.inspect("MyArchContainer").Mounts.Source),strrep(pwd,"\","/"));
+            test.verifyEqual(string(docker.inspect("MyArchContainer").Mounts.Destination),"/mydir");
+            
+            docker.rm("MyArchContainer");            
+        end
+        
         function throw_error_no_existant_repository(test)            
             
             test.verifyError(@()docker.run("foobar:baz","tail","-f /dev/null","detach",true,"name","MyBogusContainer"),"Docker:errorFromDockerCLI");

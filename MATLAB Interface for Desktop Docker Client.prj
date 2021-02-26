@@ -7,7 +7,7 @@
     <param.summary>A set of MATLAB functions to create and manage Docker images and containers through the Desktop Docker Client.</param.summary>
     <param.description>A set of MATLAB functions to create and manage Docker images and containers through the Desktop Docker Client. With these functions you can create Docker images from Dockerfiles; create, run, and dispose of Docker containers from Docker images.</param.description>
     <param.screenshot />
-    <param.version>1.0</param.version>
+    <param.version>1.2.0</param.version>
     <param.output>${PROJECT_ROOT}\MATLAB Interface for Desktop Docker Client.mltbx</param.output>
     <param.products.name>
       <item>MATLAB</item>
@@ -87,7 +87,6 @@ package.m
       <param.email />
       <param.company />
       <param.screenshot />
-      <param.version />
       <param.output />
       <param.platforms />
       <param.exclude.pcodedmfiles />
@@ -116,7 +115,6 @@ package.m
     </fileset.rootdir>
     <fileset.rootfiles>
       <file>${PROJECT_ROOT}\+Docker</file>
-      <file>${PROJECT_ROOT}\+matlab_docker_cli</file>
       <file>${PROJECT_ROOT}\.gitignore</file>
       <file>${PROJECT_ROOT}\demos.xml</file>
       <file>${PROJECT_ROOT}\doc</file>

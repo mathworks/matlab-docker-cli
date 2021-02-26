@@ -25,6 +25,17 @@ classdef Create < matlab.unittest.TestCase
             docker.rm("MyArchContainer");       
         end  
         
+        function create_container_w_volumes(test)
+            docker.pull("archlinux:latest","quiet",true);
+            
+            test.verifyWarningFree(@()docker.create("archlinux:latest",string.empty(),string.empty(),"name","MyArchContainer","volume",strrep(pwd,"\","/") + ":/mydir"));
+                        
+            test.verifyEqual(string(docker.inspect("MyArchContainer").Mounts.Source),strrep(pwd,"\","/"));
+            test.verifyEqual(string(docker.inspect("MyArchContainer").Mounts.Destination),"/mydir");
+            
+            docker.rm("MyArchContainer");            
+        end
+        
         function fail_when_image_does_not_exist(test)
             test.verifyError(@()docker.create("foobar:baz",string.empty(),string.empty(),"name","MyArchContainer"),"Docker:errorFromDockerCLI");
         end
