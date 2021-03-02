@@ -23,6 +23,7 @@ arguments
     options.buildarg string = string.empty();
     options.output string {mustBeScalarOrEmpty} = string.empty();
     options.tag string {mustBeScalarOrEmpty} = string.empty();
+    options.file string {mustBeScalarOrEmpty} = string.empty();
     
     %% Build Progress Options    
     options.pull logical {mustBeScalarOrEmpty} = logical.empty();
@@ -33,8 +34,8 @@ arguments
 end
 
 flags = containers.Map(...
-    ["label","addhost","buildarg","output","tag","pull","quiet","rm","forcerm"],...
-    ["--label","--add-host","--build-arg","--output","--tag","--pull","--quiet","--rm","--force-rm"]);
+    ["label","addhost","buildarg","output","tag","file","pull","quiet","rm","forcerm"],...
+    ["--label","--add-host","--build-arg","--output","--tag","--file","--pull","--quiet","--rm","--force-rm"]);
 
 OPTIONS = docker.internal.optionToStringMap(flags,options);
 

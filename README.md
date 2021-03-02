@@ -1,5 +1,7 @@
 # MATLAB Interface for Desktop Docker Client
 
+[![View MATLAB Interface for Desktop Docker Client on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/87232-matlab-interface-for-desktop-docker-client)
+
 ## Description
 A set of MATLAB functions to create and manage Docker images and containers through the Desktop Docker Client. With these functions you can create Docker images from Dockerfiles; create, run, and dispose of Docker containers from Docker images.
 
@@ -7,7 +9,7 @@ A set of MATLAB functions to create and manage Docker images and containers thro
 This toolbox requires the Docker client API installed on your host computer (Windows, Linux, or OSX). You download or get instructions to install Docker for your respecitve host computer from [Get Docker](https://docs.docker.com/get-docker/).
 
 ## Download
-To get and install this Add-On, search for this Add-On on [MathWorks File Exchange](https://www.mathworks.com/matlabcentral/fileexchange/) or in the [Add-On Explorer](https://www.mathworks.com/help/matlab/matlab_env/get-add-ons.html) in MATLAB. You can install the ```MATLABInterfaceForDockerDesktopClient.mltbx``` from this repository, be it is recommended using the other options to get better visibility and ratings for other users.
+To get and install this Add-On, go to [![View MATLAB Interface for Desktop Docker Client on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/87232-matlab-interface-for-desktop-docker-client). You can install the ```MATLABInterfaceForDockerDesktopClient.mltbx``` from this repository, be it is recommended using the File Exchange options to get better visibility and ratings for other users.
 
 ## Features
 This toolbox includes a set of functions that enable you to control and interact with Docker images and containers running in your host computer Docker client.
